@@ -1,0 +1,9 @@
+@import 'themes';
+
+.theme-light {
+  @import 'syntax/monokailight';
+}
+
+.theme-dark {
+  @import 'syntax/github-dark';
+}

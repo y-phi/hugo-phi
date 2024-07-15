@@ -1,0 +1,19 @@
+{{ with .Site.Params.polyfills }}
+{{ if .enabled }}
+{{ "<!--[if lt IE 9]>" | safeHTML }}
+<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-shim.min.js" integrity="sha512-v3Gab3LGQTu9ZZcZwKmDAgQrLgiR/mfQCMMmPgG/QqRuQmGWpsPbdxpIbjFhhnNpibMkJdMwPlK7IoPcMjq/ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.6.7/es5-sham.min.js" integrity="sha512-qh6LxdUtCHxkXyZLvm0TNj7T5/3nV881GpssO89qwuqERYtrvzzuHlfUCTzom6ZpTcg6Y6lylxnJqoicODuZWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha512-UDJtJXfzfsiPPgnI5S1000FPLBHMhvzAMX15I+qG2E2OAzC9P1JzUwJOfnypXiOH7MRPaqzhPbBGDNNj7zBfoA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.min.js" integrity="sha512-uWk2ZXl3GVrq6DZsrL5dSg1S/F3MNQ9VaDFigqXOoKUnWG58UxOuJGfTrzh5KjpoBvPiFniL2PahU2HUTFMJXw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{- with resources.Get "polyfills/addEventListener.js" -}}
+<script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+{{- end -}}
+{{- with resources.Get "polyfills/localStorage.js" -}}
+<script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+{{- end -}}
+{{- with resources.Get "polyfills/querySelector.js" -}}
+<script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous"></script>
+{{- end -}}
+{{ "<![endif]-->" | safeHTML }}
+{{ end }}
+{{ end }}

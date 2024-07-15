@@ -1,5 +1,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<title>
+  {{- if .IsHome -}}
+    {{ site.Title }}
+  {{- else if eq .Kind "term" -}}
+    {{ printf "%s #%s | %s" (strings.Title .Type) (strings.ToLower .Title) site.Title }}
+  {{ else }}
+  {{- end -}}
+</title>
+{{ partialCached "head/polyfills.html" . }}
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}

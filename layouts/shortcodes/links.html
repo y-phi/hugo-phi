@@ -1,0 +1,18 @@
+{{ $children := .Inner }}
+{{ with index site.Menus (.Get "menu") }}
+<div class="phi-links">
+  <ul>
+    {{ range . }}
+    <li>
+      <a href="{{ .URL }}" target="_blank" rel="noopener noreferrer">
+        <span class="phi-link--pre">
+          {{ .Pre }}
+        </span>
+        {{ .Post | default .Name | default (strings.Title (T .Identifier | default .Identifier)) }}
+      </a>
+    </li>
+    {{ end }}
+    {{ $children }}
+  </ul>
+</div>
+{{ end }}

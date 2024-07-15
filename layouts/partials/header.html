@@ -1,2 +1,49 @@
-<h1>{{ site.Title }}</h1>
-{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+<div class="phi-navbar">
+  <div class="phi-navbar--logo" id="theme-switch">
+    {{ with site.Params.navbar.brand }}
+    {{ if reflect.IsMap . }}
+    <span class="light-only">{{ .light | default .dark | safeHTML }}</span>
+    <span class="dark-only">{{ .dark | default .light | safeHTML }}</span>
+    {{ else }}
+    {{ . | safeHTML }}
+    {{ end }}
+    {{ else }}
+    <span class="phi-logo">φ</span>
+    {{ end }}
+  </div>
+  <!-- {{ . | debug.Dump }} -->
+  <div class="phi-navbar--menu">
+    {{ $page := . }}
+    {{ with index site.Menus (default "main" site.Params.navbar.menu) }}
+    <ul>
+      {{ range . }}
+        <!-- {{ urls.RelLangURL .PageRef }} -->
+        {{ $url := default (urls.RelLangURL .PageRef) .URL }}
+        {{ if $page.IsMenuCurrent .Menu . }}
+          <li class="phi-navbar--nav active" aria-current="page"><a href="{{ $url }}">{{ T .Identifier | default .Name | default .Identifier }}</a></li>
+        {{ else if $page.HasMenuCurrent .Menu .}}
+          <li class="phi-navbar--nav ancestor" aria-current="true"><a href="{{ $url }}">{{ T .Identifier | default .Name | default .Identifier }}</a></li>
+        {{ else }}
+          <li class="phi-navbar--nav"><a href="{{ $url | relLangURL }}">{{ T .Identifier | default .Name | default .Identifier }}</a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+  <div class="phi-navbar--i18n">
+    {{ if .IsTranslated }}
+      <ul>
+        {{ range $_ := .AllTranslations }}
+        {{ $class := "" }}
+        {{ if eq $page.Language .Language }}{{ $class = " active" }}{{ end }}
+        <li class="phi-i18n--language {{$class}}">
+          <a class="phi-translation" title="{{ .Language.LanguageCode }}" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+  <span class="clear"></span>
+</div>
+<!-- <h1>{{ site.Title }}</h1> -->
+{{/* {{ partial "menu.html" (dict "menuID" "main" "page" .) }} */}}

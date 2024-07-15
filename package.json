@@ -1,0 +1,27 @@
+{
+  "name": "hugo-phi",
+  "version": "1.0.0",
+  "description": "A phi powered, harmonic theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y-phi/hugo-phi.git"
+  },
+  "author": "y5c4l3 <y5c4l3@proton.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/y-phi/hugo-phi/issues"
+  },
+  "homepage": "https://github.com/y-phi/hugo-phi#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-member-expression-literals": "^7.24.7",
+    "@babel/plugin-transform-property-literals": "^7.24.7",
+    "@babel/plugin-transform-property-mutators": "^7.24.7",
+    "@babel/plugin-transform-reserved-words": "^7.24.7",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.24.8"
+  }
+}

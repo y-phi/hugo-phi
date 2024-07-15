@@ -1,0 +1,77 @@
+@import 'variables';
+
+$font-sans: 'Source Han Sans', $fallback-font-sans;
+$font-serif: 'Source Han Serif', $fallback-font-serif;
+$font-mono: 'Fira Code', $fallback-font-mono;
+
+// $font-sans: 'Source Han Sans', 'Source Han Sans K', 'Source Han Sans JP', 'Source Han Sans CN', 'Source Han Sans HK', 'Source Han Sans TW', $fallback-font-sans;
+// $font-serif: 'Source Han Serif', 'Source Han Serif K', 'Source Han Serif JP', 'Source Han Serif CN', 'Source Han Serif HK', 'Source Han Serif TW', $fallback-font-serif;
+// $font-mono: 'Fira Code', $fallback-font-mono;
+
+$light: (
+  page-background: $white,
+  text: #000,
+  default-border: #000,
+
+  navbar-background: nth($set, 5),
+  nav-color: 1px solid,
+  nav-active-shadow: $black,
+  nav-text: contrast-color(nth($set, 4), $black, $white),
+  switch-background: none,
+
+  heading-anchor: #69140e,
+  translation-anchor-bar: #ffbf46,
+
+  links-menu-background: darken($white, 5%),
+
+  md-anchor-bar: #e07a5f,
+  md-blockquote-bar: #a682ff,
+  md-blockquote-background: #eee,
+);
+
+$dark: (
+  page-background: nth($set, 1),
+  text: #fff,
+  default-border: #fff,
+
+  navbar-background: #111,
+  nav-color: 1px solid,
+  nav-active-shadow: $white,
+  nav-text: contrast-color(nth($set, 4), $black, $white),
+  switch-background: #fff,
+
+  heading-anchor: #69140e,
+  translation-anchor-bar: #b6174b,
+
+  links-menu-background: lighten(nth($set, 1), 5%),
+
+  md-anchor-bar: #e07a5f,
+  md-blockquote-bar: #a682ff,
+  md-blockquote-background: #222,
+);
+
+$themes: (
+  light: $light,
+  dark: $dark,
+);
+
+@mixin themify( $themes: $themes ) {
+  @each $theme, $map in $themes {
+
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+
+  }
+}
+
+@function theme( $key ) {
+  @return map-get( $theme-map, $key );
+}

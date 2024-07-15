@@ -1,1 +1,41 @@
-<p>Copyright {{ now.Year }}. All rights reserved.</p>
+<div class="phi-footer" style="">
+  {{ $page := .Page }}
+  {{ with .Site.Params.copyright -}}
+  {{ $prefix := "&copy;" -}}
+  {{ $from := "" -}}
+  {{ $to := now.Year -}}
+  {{ $authors := default "Site Authors" $.Site.Params.author.name }}
+  {{ $theme := true }}
+
+  {{ if reflect.IsMap . }}
+  {{ $prefix := default $prefix .prefix -}}
+  {{ $from = .from -}}
+  {{ $to = default $to .to -}}
+  {{ $authors = default $authors .authors }}
+  {{ else }}
+  {{ $authors = default $authors . }}
+  {{ end }}
+
+  <span class="phi-footer--copyright">
+    <span>
+    {{ $prefix | $page.RenderString }}
+    </span>
+    <span>
+      {{- with $from -}}
+        {{- . -}}&ndash;
+      {{- end -}}
+      {{ $to }}
+    </span>
+    <span class="phi-footer--authors">
+      {{ if reflect.IsSlice $authors }}
+        {{ range $_ := $authors }}
+        {{- . | $page.RenderString -}}
+        {{ end }}
+      {{ else }}
+        {{ $authors }}
+      {{ end }}
+    </span>
+    <span class="phi-footer--theme">Theme <a href="https://github.com/y-phi/hugo-phi">φ</a></span>
+  </span>
+  {{ end }}
+</div>

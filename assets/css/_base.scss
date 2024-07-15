@@ -1,0 +1,19 @@
+html, body {
+  font-family: $font-sans;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+pre, code {
+  font-family: $font-mono;
+}
+
+$headings: (h1, 2), (h2, 1.5), (h3, 1.25), (h4, 1),
+           (h5, .875), (h6, .85);
+@each $tag, $size, $weight in $headings {
+  .md #{$tag} {
+    font-size: #{$size}rem;
+    font-weight: $font-weight-semibold;
+    line-height: 1.25;
+  }
+}

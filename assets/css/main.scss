@@ -1,0 +1,280 @@
+@import 'helpers';
+@import 'themes';
+@import 'preflight';
+@import 'variables';
+
+@import 'base';
+@import 'markup';
+@import 'code';
+
+body {
+  transition: background-color 300ms ease-in, color 300ms ease-in;
+  max-width: 960px;
+  margin: 0 auto;
+  @include ie {
+    width: 720px;
+  }
+  @include themify {
+    background: theme('page-background');
+    color: theme('text');
+  }
+}
+
+main {
+  padding: 0 1em;
+}
+
+a {
+  transition: color 300ms ease-in;
+  @include themify {
+    color: theme('text');
+  }
+}
+
+a, abbr {
+  color: inherit;
+  text-decoration: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.phi-home {
+  // display: flex;
+  // flex-direction: row;
+  &--intro {
+
+  }
+}
+
+.phi-links {
+  padding: 0 1em;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    text-align: center;
+    font-size: 1.2em;
+    @include themify {
+      border: .1em solid theme('default-border');
+    }
+    border-radius: .2em;
+    margin-bottom: .5em;
+    list-style: none;
+    overflow: hidden;
+    :hover {
+      @include themify {
+        $color: theme('links-menu-background');
+        background: $color;
+      }
+    }
+    a {
+      // all: initial;
+      transition: none;
+      border-bottom: none !important;
+      box-shadow: none !important;
+      padding: .5em 3em;
+      display: block;
+      color: inherit;
+    }
+  }
+}
+
+.phi-navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1em;
+  &--logo {
+    @include ie {
+      display: inline;
+      float: left;
+      line-height: 3em;
+    }
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    list-style: none;
+  }
+  &--menu {
+    @include ie {
+      display: inline;
+      float: left;
+    }
+    ul {
+      flex-direction: row;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-left: 2em;
+    }
+    li {
+      @include ie {
+        line-height: 3em;
+      }
+      display: inline;
+      padding: .4em;
+      margin: 0 .5em;
+      list-style: none;
+    }
+    li.active {
+      font-weight: $font-weight-bold;
+      @include themify {
+        box-shadow: inset 0 -.125em 0 theme('nav-shadow');
+        @include ie {
+          border-bottom: .125em solid theme('nav-shadow'); 
+        }
+      }
+    }
+  }
+  &--i18n {
+    @include ie {
+      line-height: 3em;
+      float: right;
+      select {
+        line-height: 3em;
+      }
+    }
+    margin-left: auto;
+    ul {
+      display: inline;
+    }
+    li {
+      display: inline;
+    }
+  }
+}
+
+.phi-logo {
+  font-family: $fallback-font-sans;
+  // font-style: italic;
+  font-size: 2em;
+  padding-top: .3em;
+}
+
+
+a.phi-translation {
+  @include themify {
+    transition: background-color 300ms ease-in, color 300ms ease-in, box-shadow 300ms ease-in;
+    border-bottom: .125em solid theme('translation-anchor-bar');
+  }
+}
+a.phi-translation:hover {
+  @include themify {
+    box-shadow: inset 0 -.5em 0 theme('translation-anchor-bar');
+  }
+}
+
+.phi-list {
+  &--item {
+    h2 {
+      display: inline;
+      font-size: 1.2em;
+      margin: 0;
+    }
+    padding: .5em .25em;
+    @include ie {
+      clear: both;
+    }
+  }
+  &--info {
+    display: flex;
+  }
+  &--translations {
+    @include ie {
+      float: left;
+    }
+  }
+  &--time {
+    font-weight: $font-weight-semibold;
+    margin-left: auto;
+    @include ie {
+      float: right;
+    }
+  }
+}
+
+.phi-post {
+  &--title {
+    margin-top: 0;
+  }
+  &--info {
+    display: flex;
+    @include ie {
+      time {
+        float: left;
+      }
+    }
+  }
+  &--tags {
+    margin-left: auto;
+    @include ie {
+      float: right;
+    }
+  }
+  &--tag {
+    padding: .25em;
+    @include themify {
+      border: .125em dotted theme('text');
+    }
+  }
+  &--body {
+    margin: 1em 0;
+  }
+}
+
+.phi-heading-anchor {
+  display: none;
+  margin-left: .25em;
+  @include themify {
+    color: theme('heading-anchor');
+    font-size: .75em;
+  }
+}
+
+.phi-heading-anchor:hover {
+  display: inline;
+}
+
+@each $level in (h1, h2, h3, h4, h5, h6) {
+  #{$level}:hover {
+    .phi-heading-anchor {
+      display: inline;
+    }
+  }
+}
+
+.phi-footer {
+  margin: 2em 0;
+  &--theme {
+    a {
+      font-family: $fallback-font-serif;
+    }
+    border-left: .1em dotted;
+    margin-left: .5em;
+    padding-left: .5em;
+  }
+  // display: flex;
+  // justify-content: center;
+}
+
+.theme-light .light-only {
+  display: initial;
+}
+
+.theme-light .dark-only {
+  display: none;
+}
+
+.theme-dark .dark-only {
+  display: initial;
+}
+
+.theme-dark .light-only {
+  display: none;
+}

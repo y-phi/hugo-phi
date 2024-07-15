@@ -1,8 +1,30 @@
 {{ define "main" }}
+<div class="phi-list">
+  {{ if eq .Kind "term" }}
+  <h1>{{ .Type | strings.Title }} {{ .Title | strings.ToLower }}</h1>
+  {{ else }}
   <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
   {{ end }}
+  {{ .Content }}
+  <div class="phi-list--items">
+    {{ range .Pages }}
+    <div class="phi-list--item">
+      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+      {{ $dateHuman := .Date | time.Format (default ":date_long" (T "datetime.date")) }}
+      <div class="phi-list--info">
+        {{ with .AllTranslations }}
+        <div class="phi-list--translations">
+          {{ range . }}
+          <a class="phi-translation" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+        <time class="phi-list--time" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+      </div>
+    </div>
+    <div class="clear"></div>
+    {{ end }}
+  </div>
+</div>
 {{ end }}

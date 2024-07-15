@@ -4,13 +4,13 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  <header>
+  <header class="phi-header">
     {{ partial "header.html" . }}
   </header>
-  <main>
+  <main role="main">
     {{ block "main" . }}{{ end }}
   </main>
-  <footer>
+  <footer class="phi-footer">
     {{ partial "footer.html" . }}
   </footer>
 </body>
