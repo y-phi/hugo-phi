@@ -6,7 +6,7 @@
     {{ end }}
   </div>
   <div class="phi-home--recent">
-    <div class="phi-list--items">
+    <div class="phi-list">
       {{ range where .Site.RegularPages "Section" "in" .Site.MainSections }}
       <div class="phi-list--item">
         <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>

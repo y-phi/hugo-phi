@@ -11,13 +11,11 @@
     <span class="phi-logo">φ</span>
     {{ end }}
   </div>
-  <!-- {{ . | debug.Dump }} -->
   <div class="phi-navbar--menu">
     {{ $page := . }}
     {{ with index site.Menus (default "main" site.Params.navbar.menu) }}
     <ul>
       {{ range . }}
-        <!-- {{ urls.RelLangURL .PageRef }} -->
         {{ $url := default (urls.RelLangURL .PageRef) .URL }}
         {{ if $page.IsMenuCurrent .Menu . }}
           <li class="phi-navbar--nav active" aria-current="page"><a href="{{ $url }}">{{ T .Identifier | default .Name | default .Identifier }}</a></li>
@@ -30,7 +28,7 @@
     </ul>
     {{ end }}
   </div>
-  <div class="phi-navbar--i18n">
+  <!-- <div class="phi-navbar--i18n">
     {{ if .IsTranslated }}
       <ul>
         {{ range $_ := .AllTranslations }}
@@ -42,8 +40,7 @@
         {{ end }}
       </ul>
     {{ end }}
-  </div>
+  </div> -->
   <span class="clear"></span>
 </div>
-<!-- <h1>{{ site.Title }}</h1> -->
 {{/* {{ partial "menu.html" (dict "menuID" "main" "page" .) }} */}}

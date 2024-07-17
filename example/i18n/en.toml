@@ -1,0 +1,9 @@
+[posts]
+title = 'title'
+[posts.translations]
+[posts.translations.available]
+one = 'available in another language'
+other = 'available in another {{ . }} languages'
+
+[languages]
+language-code = 'language code'

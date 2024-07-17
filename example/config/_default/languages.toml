@@ -1,0 +1,35 @@
+[en]
+disabled = false
+languageName = 'English'
+languageCode = 'en-US'
+weight = 1
+
+[zh]
+disabled = false
+languageName = '中文（简体）'
+languageCode = 'zh-Hans-CN'
+weight = 2
+
+[wu]
+disabled = false
+languageName = '吴语'
+languageCode = 'zh-wuu-Hans-CN'
+weight = 3
+
+[th]
+disabled = false
+languageName = 'ภาษาไทย'
+languageCode = 'th-TH'
+weight = 4
+
+[ja]
+disabled = false
+languageName = '日本語'
+languageCode = 'ja-JP'
+weight = 5
+
+[ko]
+disabled = false
+languageName = '한국어'
+languageCode = 'ko-KR'
+weight = 6

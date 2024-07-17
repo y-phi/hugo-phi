@@ -15,5 +15,6 @@ $headings: (h1, 2), (h2, 1.5), (h3, 1.25), (h4, 1),
     font-size: #{$size}rem;
     font-weight: $font-weight-semibold;
     line-height: 1.25;
+    margin: .5em 0;
   }
 }

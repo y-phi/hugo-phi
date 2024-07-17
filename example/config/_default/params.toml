@@ -1,0 +1,21 @@
+[copyright]
+authors = ['Y5C4L3']
+
+[polyfills]
+enabled = true
+
+[navbar]
+menu = 'main'
+[navbar.brand]
+dark = '<span class="phi-logo">λ<sub>φ</sub></span>'
+light = '<span class="phi-logo">y<sub>5</sub></span>'
+
+[author]
+authors = []
+
+[plugins]
+[plugins.math]
+enabled = false
+[plugins.comments]
+enabled = true
+identifier = 'hugo-phi'

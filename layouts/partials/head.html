@@ -6,6 +6,7 @@
   {{- else if eq .Kind "term" -}}
     {{ printf "%s #%s | %s" (strings.Title .Type) (strings.ToLower .Title) site.Title }}
   {{ else }}
+    {{ printf "%s | %s" .Title site.Title }}
   {{- end -}}
 </title>
 {{ partialCached "head/polyfills.html" . }}

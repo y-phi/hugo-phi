@@ -171,12 +171,15 @@ a.phi-translation:hover {
 }
 
 .phi-list {
+  h1 {
+    font-size: 2em;
+    margin: 0;
+  }
+  h2 {
+    font-size: 1.2em;
+    margin: 0;
+  }
   &--item {
-    h2 {
-      display: inline;
-      font-size: 1.2em;
-      margin: 0;
-    }
     padding: .5em .25em;
     @include ie {
       clear: both;

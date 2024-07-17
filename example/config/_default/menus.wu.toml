@@ -1,0 +1,15 @@
+[[landing]]
+identifier = 'discord'
+name = 'Discord'
+pre = '<i class="fab fa-discord"></i>'
+post = '在 Discord 上问好'
+url = 'https://discordapp.com/users/'
+weight = 1
+
+[[landing]]
+identifier = 'reddit'
+name = 'Reddit'
+pre = '<i class="fab fa-reddit"></i>'
+post = '[Removed by Reddit]'
+url = 'https://www.reddit.com/user/'
+weight = 2

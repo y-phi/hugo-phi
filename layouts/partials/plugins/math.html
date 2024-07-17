@@ -1,0 +1,13 @@
+{{ if (default .Site.Params.plugins.math.enabled .Params.math) }}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  root: '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1',
+  TeX: { equationNumbers: { autoNumber: 'AMS' } },
+  tex2jax: {
+    inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+    displayMath: [ ['$$','$$'], ['\[', '\]'] ]
+  }
+});
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS_HTML" integrity="sha512-Fb4/an6TfXwyI4QMM5px5/id070+Zbju5QWOQBZXyK5faGjD5uyxaBx609+F4EincAV3Q90/5JL2T7Y/HgoX9A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ end }}
