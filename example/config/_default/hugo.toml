@@ -1,5 +1,5 @@
 title = 'Phi'
-baseURL = 'https://y-phi.github.io/hugo-phi'
+baseURL = 'https://hugo-phi.netlify.app'
 defaultContentLanguage = 'en'
 mainSections = ['posts']
 [taxonomies]
