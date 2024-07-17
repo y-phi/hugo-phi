@@ -1,0 +1,17 @@
+[goldmark]
+[goldmark.extensions]
+[goldmark.extensions.cjk]
+enable = true
+eastAsianLineBreaks = true
+eastAsianLineBreaksStyle = 'css3draft'
+escapedSpace = true
+[goldmark.extensions.passthrough]
+enable = true
+[goldmark.extensions.passthrough.delimiters]
+block = [['$$', '$$']]
+inline = [['$', '$']]
+[goldmark.renderer]
+unsafe = true
+[highlight]
+lineNos = true
+noClasses = false

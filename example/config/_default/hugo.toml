@@ -6,10 +6,3 @@ mainSections = ['posts']
 category = 'categories'
 tag = 'tags'
 series = 'series'
-[markup.goldmark.renderer]
-unsafe = true
-[markup.goldmark.extensions.cjk]
-enable = true
-eastAsianLineBreaks = true
-eastAsianLineBreaksStyle = 'css3draft'
-escapedSpace = true

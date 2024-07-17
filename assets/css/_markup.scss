@@ -68,6 +68,16 @@
   }
 }
 
+.md table, .md figure, .md img {
+  max-width: 100%;
+}
+
+.md .highlight, .md > code, .md > pre {
+  font-size: .875em;
+  overflow-x: scroll;
+  max-width: 100%;
+}
+
 .md {
   thead th {
     padding: .5em;
@@ -92,5 +102,41 @@
         border-bottom: .125em solid theme('text');
       }
     }
+  }
+}
+
+@include ie {
+  .md pre {
+    word-wrap: normal;
+  }
+  
+  .md pre {
+    width: auto !important;
+    width: 100%;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    margin: 1em 0;
+  }
+  
+  .md * pre {
+    width: auto;
+    overflow: hidden;
+    margin: 0;
+  }
+  
+  .md .highlight {
+    width: auto !important;
+    width: 100%;
+    margin: 1em 0;
+  }
+  
+  .md figure, .md img {
+    width: auto !important;
+    width: 100%;
+  }
+  
+  .md .highlight {
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 }
