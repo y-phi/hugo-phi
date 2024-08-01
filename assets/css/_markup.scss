@@ -46,7 +46,7 @@
     margin-bottom: 1rem;
   }
   @include themify {
-    a, p a {
+    a, p a, li a {
       transition: background-color 300ms ease-in, color 300ms ease-in, box-shadow 300ms ease-in;
       border-bottom: .125em solid theme('md-anchor-bar');
     }
@@ -54,7 +54,7 @@
       transition: none;
       border-bottom: none;
     }
-    a:hover, p a:hover {
+    a:hover, p a:hover, li a:hover {
       box-shadow: inset 0 -.5em 0 theme('md-anchor-bar');
       border-bottom: .125em solid theme('md-anchor-bar');
       @include ie {
